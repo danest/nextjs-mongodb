@@ -1,4 +1,5 @@
 import clientPromise from '../lib/mongodb'
+import Link from 'next/link'
 
 export default function Top({ movies }) {
   return (
@@ -8,7 +9,9 @@ export default function Top({ movies }) {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <h2>{movie.title}</h2>
+            <Link href={`${movie._id}`}>
+              <h2>{movie.title}</h2>
+            </Link>
             <h3>{movie.metacritic}</h3>
             <p>{movie.plot}</p>
           </li>
